@@ -1,0 +1,991 @@
+/* ===========================
+   STYLES-NEW.CSS
+   Home Remodeling Website
+   =========================== */
+
+/* Root Variables */
+:root {
+  --primary-color: #0A1C26;
+  --secondary-color: #2A4759;
+  --accent-color: #62B7D9;
+  --text-light: #F2F2F2;
+  --text-dark: #333;
+  --bg-light: #B0B7BF;
+  --spacing-unit: 1rem;
+  
+  /* CSS HEX */
+--fresh-sky: #00ADF1;
+--taupe-grey: #77625cff;
+--prussian-blue: #0c1b33ff;
+--lime-cream: #dbfe87ff;
+--tangerine-dream: #f39c6bff;
+
+/* CSS HSL */
+--fresh-sky: hsla(197, 100%, 47%, 1);
+--taupe-grey: hsla(13, 13%, 41%, 1);
+--prussian-blue: hsla(217, 62%, 12%, 1);
+--lime-cream: hsla(78, 98%, 76%, 1);
+--tangerine-dream: hsla(22, 85%, 69%, 1);
+}
+
+
+
+body {
+            margin: 0;
+            font-family: Verdana, Tahoma, sans-serif, sans-serif;
+            min-height: 100vh;
+            color: #fff;
+            font-size: 16px;
+            }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+a :active, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Wham-Bang'; /* A name you choose for the font */
+  src: url('../adventure/Adventure.otf') format('opentype');
+  font-weight: normal; /* Optional descriptors */
+  font-style: normal;
+  font-display: swap; /* Helps control font loading behavior */
+}
+
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 .5rem 0;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  mix-blend-mode: difference;
+}
+
+.hero-content h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-style: italic;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  mix-blend-mode: difference;
+}
+
+
+.hero-content h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-style: italic;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  mix-blend-mode: difference;
+}
+
+.hero-content h4 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0 0 1.2rem 0;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  mix-blend-mode: difference;
+}
+
+/* ===========================
+   HEADER / NAVIGATION
+   =========================== */
+
+.header {
+  background-color: var(--primary-color);
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  width: 50px;
+}
+
+.logo-container img {
+  width: 145px;
+  height: auto;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--accent-color);
+}
+
+/* ===========================
+   HERO SECTION
+   =========================== */
+
+.hero {
+  position: relative;
+  /* height: 500px; */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row {
+
+  height: 10vh;
+  width: 100%;
+  animation: fade 5s infinite;
+  animation-direction: alternate;
+  opacity: 0.8;
+}
+
+.row-2 {
+  animation-delay: 0.5s;
+}
+
+.row-3 {
+  animation-delay: 1s;
+}
+
+.row-4 {
+  animation-delay: 1.5s;
+}
+
+.row-5 {
+  animation-delay: 2s;
+}
+
+.row-6 {
+  animation-delay: 2.5s;
+}
+
+.row-7 {
+  animation-delay: 3s;
+}
+
+.row-8 {
+  animation-delay: 3.5s;
+}
+
+.row-9 {
+  animation-delay: 4s;
+}
+
+.row-10 {
+  animation-delay: 4.5s;
+}
+
+@keyframes fade {
+  from {
+    background: #006dfb;
+  }
+  to {
+    background: #060d5c;
+  }
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.rain-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  mix-blend-mode: color-dodge;
+}
+
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--text-light);
+  max-width: 70%;
+  padding: 6rem 2rem 8rem;
+}
+
+
+.hero-content p {
+  font-size: 1rem;
+  margin: 0 0 2rem 0;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===========================
+   BUTTONS
+   =========================== */
+
+
+/* .btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 12px;
+} */
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 8px;
+  transition: all 0.2s;
+  position: absolute;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--accent-color);
+  color: #fff;
+  margin: 1rem 0 1rem;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: var(--lime-cream);
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  -webkit-animation: moveInBottom 5s ease-out;
+          animation: moveInBottom 5s ease-out;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+}
+
+@-webkit-keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.btn-primary {
+color: var(--lime-cream);
+  border-radius: 6px;
+  padding:10px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #ffffff;
+  transform: translateY(-2px);
+  color: var(--primary-color);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-light);
+  border: 2px solid var(--text-light);
+}
+
+.btn-secondary:hover {
+  background-color: var(--text-light);
+  color: var(--text-dark);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  margin-top: 1rem;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+<div class="glass-card">
+  <div class="card-content">
+    <div class="card-header">
+      <div class="user-info">
+        <div class="avatar">
+          <svg class="avatar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <div class="user-details">
+          <p class="user-name">Jane Doe</p>
+          <p class="user-role">UX Designer</p>
+        </div>
+      </div>
+      <svg class="notification-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">Styled Component</h3>
+      <p class="card-description">This is a sample of how your content might look inside.</p>
+      <button class="glass-button">Get Started</button>
+    </div>
+    <p class="card-tip">Tip: Try adjusting the sliders and colors to see real-time changes!</p>
+  </div>
+</div>
+
+
+/* Glassmorphism Card */
+.glass-card {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  border-radius: 9px;
+  background: rgba(248, 248, 248, 0);
+  backdrop-filter: blur(3px) saturate(105%);
+  -webkit-backdrop-filter: blur(3px) saturate(105%);
+  border: 2px solid rgba(204, 204, 204, 0.2);
+  box-shadow: -2px 1px 26px 0 rgba(0, 0, 0, 0.28),
+    inset 0 0 83px rgba(255, 255, 255, 0.36),
+    inset 0px 0px 4px 2px rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+}
+
+/* Reflection highlights (two-layer overlay) */
+.glass-card {
+  position: relative;
+  
+  border-radius: 9px;
+  background: rgba(248, 248, 248, 0);
+  backdrop-filter: blur(3px) saturate(105%);
+  -webkit-backdrop-filter: blur(3px) saturate(105%);
+  border: 2px solid rgba(204, 204, 204, 0.2);
+  box-shadow: -2px 1px 26px 0 rgba(0, 0, 0, 0.28),
+    inset 0 0 83px rgba(255, 255, 255, 0.36),
+    inset 0px 0px 4px 2px rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+}
+
+/* Reflection highlights (two-layer overlay) */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: inherit;
+  /* angled edge reflection */
+  background: linear-gradient(to left top, rgba(255,255,255,0.11) 0%, rgba(255,255,255,0) 50%);
+  z-index: 1;
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: inherit;
+  /* subtle top-to-bottom sheen */
+  background: linear-gradient(to bottom, rgba(255,255,255,0.066) 0%, rgba(255,255,255,0) 100%);
+  z-index: 1;
+}
+
+/* Content styling */
+.card-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-icon {
+  width: 20px;
+  height: 20px;
+  color: #3b82f6;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 600;
+  margin: 0;
+}
+
+.user-role {
+  font-size: 12px;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.notification-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+}
+
+.card-body {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.card-description {
+  font-size: 14px;
+  opacity: 0.7;
+  margin: 0 0 16px 0;
+}
+
+.glass-button {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.glass-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+}
+
+.card-tip {
+  font-size: 12px;
+  text-align: center;
+  color: #e0e6ed;
+  margin: 16px 0 0 0;
+}
+
+/* ===========================
+   SERVICE CARDS SECTION
+   =========================== */
+
+ .service-cards {
+  position: relative;
+  z-index: 1;
+  /* base darker gradient to provide contrast for glass cards */
+  /* background-color: rgba(6,12,18,1); */
+  /* stronger highlights: increased white radial strength, added sheen layer */
+  background-image: url("../images/service-bg.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  overflow: hidden;
+  padding: 3rem 2rem;
+ }
+
+ .service-cards:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Black overlay with 60% opacity */
+  z-index: -1; /* Places the overlay behind the container's content */
+}
+
+.cards-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  /* background-color: var(--text-dark); */
+  padding: 1rem;
+  text-align: center;
+  color: var(--text-light);
+  /* border: 4px solid rgba(255, 255, 255, 0.2); */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon {
+  margin-bottom: 1rem;
+}
+
+.card-icon img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  margin: 1rem  0 0.5rem 0;
+  font-weight: 700;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+  opacity: 0.9;
+}
+
+.card-link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.card-link:hover {
+  background-color: var(--text-light);
+  color: var(--primary-color);
+}
+
+/* ===========================
+   TESTIMONIALS SECTION
+   =========================== */
+
+.testimonials {
+  background-color: var(--primary-color);
+  padding: 3rem 2rem;
+}
+
+.testimonials-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background-color: var(--text-light);
+  padding: 2rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stars {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.testimonial-text {
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+  min-height: 80px;
+}
+
+.testimonial-author {
+  color: var(--accent-color);
+  font-weight: 700;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.testimonial-location {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* ===========================
+   BRANDS SECTION
+   =========================== */
+
+.brands {
+  background-color: var(--text-light);
+  padding: 3rem 2rem;
+}
+
+.brands-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.brands-grid img {
+  max-width: 100%;
+  height: 60px;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.brands-grid img:hover {
+  opacity: 1;
+}
+
+/* ===========================
+   FEATURED WORK SECTION
+   =========================== */
+
+.featured-work {
+  background-color: var(--primary-color);
+  padding: 3rem 2rem;
+}
+
+.featured-work h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--text-light);
+  margin: 0 0 4rem 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projects-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 250px;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+.project-card h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: var(--text-light);
+  margin: 0;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* ===========================
+   FOOTER SECTION
+   =========================== */
+
+.footer {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 3rem 2rem 2rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.footer-column hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 3% 0 3%;
+  width: 70%;
+ }
+
+.footer-column h3 {
+  font-family: 'Wham-Bang';
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 2rem 0;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-item {
+  margin-bottom: 1rem;
+}
+
+.footer-item h4 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+}
+
+.footer-item p {
+  font-size: 0.7rem;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-menu ul {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-work h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-menu a {
+    font-size: 0.75rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .service-cards {
+    padding: 2rem 1rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    height: 350px;
+  }
+
+  .project-card {
+    height: 200px;
+  }
+}
