@@ -66,14 +66,24 @@ a :active, a:hover, a:focus {
   font-weight: 700;
   margin: 0 0 .5rem 0;
   line-height: 1.2;
-  letter-spacing: 1px;
-  mix-blend-mode: difference;
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
 }
 
-.hero-content h2 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin: 0 0 1.5rem 0;
+.footer-inner-left {
+  display: flex;
+  gap: 2rem;
+  flex: 1 1 65%;
+  align-items: flex-start;
+}
+
+.footer-inner-right {
+  flex: 0 0 35%;
+}
   line-height: 1.2;
   letter-spacing: 1px;
   mix-blend-mode: difference;
@@ -862,55 +872,141 @@ color: var(--lime-cream);
    =========================== */
 
 .footer {
-  background-color: var(--primary-color);
+  background-color: #06394f; /* deep teal, matches supplied design */
   color: var(--text-light);
-  padding: 3rem 2rem 2rem;
+  padding: 3rem 2rem 3rem;
+  font-size: 0.9rem; /* reduce overall footer text size */
+  border-top: 3px solid rgba(0,0,0,0.12);
 }
 
-.footer-content {
+.footer-inner-left {
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 2rem;
+  align-items: flex-start;
 }
 
-.footer-column hr {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  margin: 3% 0 3%;
-  width: 70%;
- }
+.footer-brand {
+  text-align: left;
+  margin: 0;
+  flex: 0 0 30%;
+}
 
-.footer-column h3 {
-  font-family: 'Wham-Bang';
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin: 0 0 2rem 0;
+.footer-brand h2 {
+  font-family: 'Wham-Bang', 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  margin: 0;
   color: var(--text-light);
-  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.footer-item {
-  margin-bottom: 1rem;
+.footer-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 320px;
 }
 
-.footer-item h4 {
-  font-size: 0.8rem;
+.footer-column { flex: 1; }
+
+.footer-content {
+  max-width: 1200px;
+  display: flex;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-heading {
+  color: var(--fresh-sky);
   font-weight: 700;
   margin: 0 0 0.5rem 0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-size: 0.95rem;
+}
+
+.contact-item {
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
   color: var(--text-light);
 }
 
-.footer-item p {
-  font-size: 0.7rem;
-  line-height: 1.6;
-  margin: 0;
-  opacity: 0.9;
+.contact-item a {
+  color: var(--text-light);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 600;
 }
+
+/* Contact form styles */
+.contact-form {
+  background: rgba(255,255,255,0.02);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.contact-form .form-row { margin-bottom: 0.75rem; }
+.contact-form label { display:block; font-weight:700; color: var(--text-light); margin-bottom: 6px; font-size: 0.85rem; }
+.contact-form input[type="text"],
+.contact-form input[type="tel"],
+.contact-form input[type="email"],
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.checkbox-group label { display:inline-flex; align-items:center; gap:6px; margin-right:8px; font-weight:500; }
+
+.form-actions { margin-top: 0.5rem; }
+
+.contact-form .btn.btn-primary { padding: 8px 16px; border-radius: 6px; }
+
+@media (max-width: 768px) {
+  .footer-content { flex-direction: column; }
+  .footer-inner-left { flex-direction: column; }
+  .footer-inner-right { flex: 1 1 auto; }
+  .footer-brand { flex: none; }
+}
+.footer-social {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--text-light);
+  color: var(--primary-color);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.social-icon:hover { transform: translateY(-3px); }
+
+.social-icon::before {
+  /* placeholder for icons — keep accessible text via aria-label */
+  content: '';
+  display: block;
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin: 12px auto;
+  fill: var(--primary-color);
+}
+
+/* keep legacy footer item styles for safety */
+.footer-item { margin-bottom: 1rem; }
+.footer-item p { margin: 0; }
 
 /* ===========================
    RESPONSIVE DESIGN

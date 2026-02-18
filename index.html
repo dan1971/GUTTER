@@ -132,43 +132,103 @@
       <!-- Footer Section -->
       <footer class="footer">
         <div class="footer-content">
-          <div class="footer-column">
-            <h3>Why Choose Us?</h3>
-            <div class="footer-item">
-              <h4>LOCAL OPERATOR</h4>
-              <p>Washington-based, no big crews, no shortcuts. You get the owner doing the work.</p>
+          <div class="footer-inner-left">
+            <div class="footer-brand">
+              <img src="images/logo-RR.svg" alt="Continuous Gutter & Roofing logo" class="footer-logo">
             </div>
-            <hr>
-            <div class="footer-item">
-              <h4>INSURED & SAFE</h4>
-              <p>Fully insured and safety-focused. Your home and property are protected.
-              <ul>
-              <li>Reg: CC RAINRRG757DU</li>
-              <li>UBI: 605-070-771</li>
-              </ul>
-              </p>
-            </div>
-            <hr>
-            <div class="footer-item">
-              <h4>HONEST PRICING</h4>
-              <p>No upsells, no surprises. You know the cost before work begins.</p>
+            <div class="footer-column contact-left">
+            <h4 class="contact-heading">Phone Number</h4>
+            <p class="contact-item"><a href="tel:5098235120">(509) 823-5120</a></p>
+
+            <h4 class="contact-heading">Email</h4>
+            <p class="contact-item"><a href="mailto:continuousgutter@gmail.com">continuousgutter@gmail.com</a></p>
+          </div>
+
+          <div class="footer-column contact-right">
+            <h4 class="contact-heading">Address</h4>
+            <p class="contact-item"><a href="https://maps.google.com/?q=420+N+20th+Ave+Yakima+WA">420 N 20th Ave Yakima, WA<br>98902</a></p>
+
+            <h4 class="contact-heading">Hours</h4>
+            <p class="contact-item">Mon-Fri 9:00 AM – 5:00 PM</p>
+
+            <div class="footer-social" aria-label="social links">
+                <a class="social-icon social-facebook" href="https://share.google/Homq5TA4zwgeL6Frx" aria-label="facebook" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="img">
+                  <title>Facebook</title>
+                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.877v-6.99H8.898v-2.887h1.54V9.845c0-1.523.903-2.364 2.285-2.364.66 0 1.353.118 1.353.118v1.49h-.763c-.752 0-.986.467-.986.945v1.135h1.678l-.268 2.887h-1.41V22C18.343 21.128 22 16.991 22 12z"/>
+                </svg>
+              </a>
+                <a class="social-icon social-instagram" href="#" aria-label="instagram" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="img">
+                  <title>Instagram</title>
+                  <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.3A4.7 4.7 0 1 0 16.7 13 4.7 4.7 0 0 0 12 8.3zm6.4-3.6a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1zM12 15.2A3.2 3.2 0 1 1 15.2 12 3.2 3.2 0 0 1 12 15.2z"/>
+                </svg>
+              </a>
             </div>
           </div>
-          <div class="footer-column">
-            <h3>DON'T WAIT FOR THE NEXT STORM</h3>
-            <div class="footer-item">
+          </div>
+          <div class="footer-inner-right">
+            <form id="contact-form" class="contact-form" action="#" method="post" novalidate>
+              <div class="form-row">
+                <label for="cf-name">Name *</label>
+                <input type="text" id="cf-name" name="name" required>
+              </div>
 
-            </div>
-            <hr>
-            <div class="footer-item">
-              <h4>Quality Workmanship</h4>
-              <p>Top-quality gutter systems offered in an extensive range of color options to fit your style.</p>
-            </div>
-            <hr>
-            <div class="footer-item">
-              <h4>📞 CALL  (509) 823-5120 / TEXT NOW</h4>
-              <p>Functional gutters save you money —S Washington rain doesn't take breaks.</p>
-            </div>
+              <div class="form-row">
+                <label for="cf-phone">Contact Number *</label>
+                <input type="tel" id="cf-phone" name="phone" required>
+              </div>
+
+              <div class="form-row">
+                <label for="cf-email">Email Address *</label>
+                <input type="email" id="cf-email" name="email" required>
+              </div>
+
+              <div class="form-row">
+                <label>Services Needed</label>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" name="service[]" value="install"> Install</label>
+                  <label><input type="checkbox" name="service[]" value="cleaning"> Cleaning</label>
+                  <label><input type="checkbox" name="service[]" value="repair"> Repair</label>
+                  <label><input type="checkbox" name="service[]" value="other"> Other</label>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label for="cf-stories">How many stories is your home?</label>
+                <select id="cf-stories" name="stories">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4+</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="cf-urgency">Urgency (1 - 10)</label>
+                <select id="cf-urgency" name="urgency">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="message" rows="4"></textarea>
+              </div>
+
+              <div class="form-row form-actions">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </div>
+            </form>
           </div>
         </div>
       </footer>
