@@ -66,34 +66,6 @@ h4 {
   font-size: 1.3rem;
 }
 
-.hero-content h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin: 0 0 .5rem 0;
-  line-height: 1.2;
-  line-height: 1.2;
-  letter-spacing: 1px;
-  mix-blend-mode: difference;
-}
-
-.hero-content h2{
-  font-size: 1.1rem;
-  font-weight: 400;
-  margin: 0 0 1.2rem 0;
-  line-height: 1.2;
-  letter-spacing: 1px;
-  mix-blend-mode: difference;
-}
-
-.hero-content h4 {
-  font-size: 1.1rem;
-  font-weight: 400;
-  margin: 0 0 1.2rem 0;
-  line-height: 1.2;
-  letter-spacing: 1px;
-  mix-blend-mode: difference;
-}
-
 /* ===========================
    HEADER / NAVIGATION
    =========================== */
@@ -264,10 +236,45 @@ h4 {
   z-index: 2;
   text-align: center;
   color: var(--text-light);
-  max-width: 70%;
+  width: 58%;
   padding: 6rem 2rem 8rem;
 }
 
+.hero-label{
+  display:grid;
+  align-items: center;
+  background-color: #3b82f6;
+  padding: 0rem 1rem;
+  color: var(--text-light);
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 .5rem 0;
+  line-height: 1.2;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  mix-blend-mode: difference;
+}
+
+.hero-content h2{
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1.2rem 0;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  mix-blend-mode: difference;
+}
+
+.hero-content h4 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0 0 1.2rem 0;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  mix-blend-mode: difference;
+}
 
 .hero-content p {
   font-size: 1rem;
