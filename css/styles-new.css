@@ -243,13 +243,69 @@ h4 {
   padding: 6rem 2rem 8rem;
 }
 
+
+/* Glassmorphism Card */
+
+/* Reflection highlights (two-layer overlay) */
+.glass-card {
+  position: relative;
+  
+  border-radius: 9px;
+  background: rgba(248, 248, 248, 0);
+  backdrop-filter: blur(3px) saturate(105%);
+  -webkit-backdrop-filter: blur(3px) saturate(105%);
+  border: 2px solid rgba(204, 204, 204, 0.2);
+  box-shadow: -2px 1px 26px 0 rgba(0, 0, 0, 0.28),
+    inset 0 0 83px rgba(255, 255, 255, 0.36),
+    inset 0px 0px 4px 2px rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+}
+
+/* Reflection highlights (two-layer overlay) */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: inherit;
+  /* angled edge reflection */
+  background: linear-gradient(to left top, rgba(255,255,255,0.11) 0%, rgba(255,255,255,0) 50%);
+  z-index: 1;
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: inherit;
+  /* subtle top-to-bottom sheen */
+  background: linear-gradient(to bottom, rgba(255,255,255,0.066) 0%, rgba(255,255,255,0) 100%);
+  z-index: 1;
+}
+
 .hero-label{
   display: flex;
   flex-Direction: column;
   justify-Content: center;
+    border-radius: 2px;
   align-Items: center;
-  padding: 0rem 1rem;
+  padding: .3rem 0rem;
   color: var(--text-light);
+}
+
+.hero-label .glass-card {
+
+  box-shadow: -2px 1px 26px 0 rgba(0, 0, 0, 0.28),
+    inset 0 0 83px rgba(255, 255, 255, 0.36),
+    inset 0px 0px 4px 2px rgba(255, 255, 255, 0.22);
+  overflow: hidden;
 }
 
 .hero-content h1 {
@@ -259,16 +315,15 @@ h4 {
   line-height: 1.2;
   line-height: 1.2;
   letter-spacing: 1px;
-  mix-blend-mode: difference;
 }
 
 .hero-content h2{
   font-size: 1.1rem;
   font-weight: 600;
-  margin: 0 0 1.2rem 0;
+  margin: 0rem 0 1.3rem 0;
   line-height: 1.2;
   letter-spacing: 1px;
-  mix-blend-mode: difference;
+
 }
 
 .hero-content h4 {
@@ -276,7 +331,7 @@ h4 {
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 1px;
-  mix-blend-mode: difference;
+
 }
 
 .hero-content p {
@@ -290,6 +345,7 @@ h4 {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 1.3rem 0 0 0;
 }
 
 /* ===========================
@@ -323,7 +379,7 @@ h4 {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 12px 20px;
   display: inline-block;
   border-radius: 8px;
   transition: all 0.2s;
@@ -429,51 +485,7 @@ h4 {
   color: var(--text-light);
 }
 
-/* Glassmorphism Card */
 
-/* Reflection highlights (two-layer overlay) */
-.glass-card {
-  position: relative;
-  
-  border-radius: 9px;
-  background: rgba(248, 248, 248, 0);
-  backdrop-filter: blur(3px) saturate(105%);
-  -webkit-backdrop-filter: blur(3px) saturate(105%);
-  border: 2px solid rgba(204, 204, 204, 0.2);
-  box-shadow: -2px 1px 26px 0 rgba(0, 0, 0, 0.28),
-    inset 0 0 83px rgba(255, 255, 255, 0.36),
-    inset 0px 0px 4px 2px rgba(255, 255, 255, 0.22);
-  overflow: hidden;
-}
-
-/* Reflection highlights (two-layer overlay) */
-.glass-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  border-radius: inherit;
-  /* angled edge reflection */
-  background: linear-gradient(to left top, rgba(255,255,255,0.11) 0%, rgba(255,255,255,0) 50%);
-  z-index: 1;
-}
-
-.glass-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  border-radius: inherit;
-  /* subtle top-to-bottom sheen */
-  background: linear-gradient(to bottom, rgba(255,255,255,0.066) 0%, rgba(255,255,255,0) 100%);
-  z-index: 1;
-}
 
 /* Content styling */
 .card-content {
