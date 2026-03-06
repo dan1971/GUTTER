@@ -1,24 +1,3 @@
-// const imgs = document.querySelectorAll('.img-select a');
-// const imgBtns = [...imgs];
-// let imgId = 1;
-
-// imgBtns.forEach((imgItem) => {
-//     imgItem.addEventListener('click', (event) => {
-//         console.log(imgItem);
-//         event.preventDefault();
-//         imgId = imgItem.dataset.id;
-//         slideImage();
-//     });
-// });
-
-// function slideImage(){
-//     const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
-
-//     document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
-// }
-
-// window.addEventListener('resize', slideImage);
-
 $(document).ready(function(){
 
 // MAKE IT RAIN! 
@@ -152,11 +131,11 @@ canvas.height = parentHeight;
 //--------------CONTACT CAPTCHA FORM SUBMISSION --------------
 
 	
-	sendFormAfterCaptchaValid = function(){
-	let Fname =  $('input[name="firstname"]').val();
-	let Lname =  $('input[name="lastname"]').val();
-	let email =  $('input[name="email"]').val();
-	let messge = $('#message').val();
+	// sendFormAfterCaptchaValid = function(){
+	// let Fname =  $('input[name="firstname"]').val();
+	// let Lname =  $('input[name="lastname"]').val();
+	// let email =  $('input[name="email"]').val();
+	// let messge = $('#message').val();
 
 // CONTACT FORM ERROR CHECK START
 // SANITIZE FIRST NAME
@@ -229,12 +208,27 @@ canvas.height = parentHeight;
 			}, 1000
 			);
 		}
+let formProcessedInputs = [sFname,Lname,email,messge];
 
+console.log("formProcessedInputs= " + formProcessedInputs);
 
-	sendInfo = (Fn,Ln,e,m)=>{
+  let formData = $(this).serialize();
+  console.log("formData= "+ formData)
+
+	sendInfo = (formData)=>{
 		$.ajax({
         type: 'POST',
-        url: "contact_form_submit.php",
+        url: "contact_form_submit_sql.php",
+		data= formData,
+		success: function(response) {
+        // Display the response from the PHP script
+            $('#responseMessage').html(response);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log("Request failed: " + textStatus, errorThrown);
+            }
+        });
+
         data: { firstname: Fn, lastname: Ln, email: e, message: m }
  		 }).done(function (n) {
 			let j = JSON.parse(n);

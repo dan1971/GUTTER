@@ -1,68 +1,34 @@
-<?php 
+<?php
+// Database connection details
+$servername = "localhost";
+$username = "cpses_sad23hnevz@localhost"; // Replace with your database username
+$password = "MutterGutter33!";     // Replace with your database password
+$dbname = "sazxjwte_CustomerFormSubmit"; // Replace with your database name
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-require './PHPMailer/src/Exception.php';
-require './PHPMailer/src/PHPMailer.php';
-require './PHPMailer/src/SMTP.php';
-
-define('GUSER', 'art@falloutzones.com'); // GMail username
-define('GPWD', 'qxjy zbog xbez wjdu'); // GMail password
-
-$send_to = "bryan@falloutzones.com";
-
-$from = $_POST['email']; 
-$from_name = $_POST['firstname'];
-$subject = "Fallout Zones Inquiry";
-$body = $_POST['message'];
-
-function smtpmailer($to, $from, $from_name, $subject, $body) { 
-    global $error;
-    $mail = new PHPMailer();  // create a new object
-    $mail->IsSMTP(); // enable SMTP
-    $mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
-    $mail->SMTPAuth = true;  // authentication enabled
-    $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-    $mail->Host = 'smtp.gmail.com';
-    $mail->Port = 465; 
-    $mail->Username = GUSER;  
-    $mail->Password = GPWD;           
-    $mail->AddReplyTo($from, $from_name);
-    $mail->SetFrom($from, $from);
-    $mail->Subject = $subject;
-    $mail->Body = "From: " . $from_name ."\n". "Email: " . $from  ."\n". "Message: " . $body;
-    $mail->AddAddress($to);
-    if(!$mail->Send()) {
-        $error = 'Mail error: '.$mail->ErrorInfo; 
-        $response = array("error","There was a problem sending your message.<br>Please reload the page and try again");
-        echo json_encode($response);
-        return false;
-    } else {
-        $error = 'Message sent!';
-        $userName = json_encode($from_name);
-        $response = array("success",$userName);
-        echo json_encode($response); //sending response to ajax
-        return true;
-    }
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Sanitize and print comment string
-$sanitizedFirstName = htmlspecialchars($from_name, ENT_QUOTES, 'UTF-8');
-//echo $sanitizedFirstName;
+// Get form data (names match the "name" attributes in the HTML form)sFname,Lname,email,messge firstname"]').val();
+	// let Lname =  $('input[name="lastname"]').val();
+	// let email =  $('input[name="email"]').val();
+	// let messge = $('#message').val();
+$name = $_POST['firstname'] ?? 'Guest';
+$phone = $_POST['phone'] ?? 'N/A';
+$email = $_POST['email'] ?? 'N/A';
+$message = $_POST['message'] ?? 'No message';
+// Check vars recieve
 
-// Sanitize Email
-$sanitizedEmail = filter_var($from, FILTER_SANITIZE_EMAIL);
+echo "Name: " . htmlspecialchars($name) . "<br>";
+echo "Phone: " . htmlspecialchars($phone) . "<br>";
+echo "Email: " . htmlspecialchars($email) . "<br>";
+echo "Message: " . htmlspecialchars($message);
 
-// Validate Email and send or 
-if (filter_var($sanitizedEmail, FILTER_VALIDATE_EMAIL)) {
-        // $userName = json_encode($sanitizedFirstName);
-        // $response = array("success",$userName);
-        // echo json_encode($response);
-    smtpmailer($send_to,$from,$from_name,$subject,$body);
-} else {
-    $response = array("error","Invalid email address. Please check for typos and resend");
-    echo json_encode($response);
-}
-
+// Close connections
+$stmt->close();
+$conn->close();
 ?>
