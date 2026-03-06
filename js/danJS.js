@@ -192,7 +192,7 @@ canvas.height = parentHeight;
 		
 		let findErrors = errors.includes(1);
 		
-// CONTACT FORM ERROR CHECK END
+   // CONTACT FORM ERROR CHECK END
 
 		if(!findErrors){
 			let h = $('.form-container-all').height();
@@ -208,9 +208,9 @@ canvas.height = parentHeight;
 			}, 1000
 			);
 		}
-let formProcessedInputs = [sFname,Lname,email,messge];
+ let formProcessedInputs = [sFname,Lname,email,messge];
 
-console.log("formProcessedInputs= " + formProcessedInputs);
+ console.log("formProcessedInputs= " + formProcessedInputs);
 
   let formData = $(this).serialize();
   console.log("formData= "+ formData)
@@ -228,76 +228,77 @@ console.log("formProcessedInputs= " + formProcessedInputs);
                 console.log("Request failed: " + textStatus, errorThrown);
             }
         });
+	}
 
-        data: { firstname: Fn, lastname: Ln, email: e, message: m }
- 		 }).done(function (n) {
-			let j = JSON.parse(n);
-			let result=j[0];
-			let msg=j[1];
- 		 	if(result=="error"){
- 		 		errorFunction(msg);
- 		 	} else {
- 		 		let userName = msg.replace(/"/g, '');
- 		 		 successFunction(userName);
-			}
+
+ 	// 	 }).done(function (n) {
+	// 		let j = JSON.parse(n);
+	// 		let result=j[0];
+	// 		let msg=j[1];
+ 	// 	 	if(result=="error"){
+ 	// 	 		errorFunction(msg);
+ 	// 	 	} else {
+ 	// 	 		let userName = msg.replace(/"/g, '');
+ 	// 	 		 successFunction(userName);
+	// 		}
 			 		 	
- 		 }).fail(function (jqXHR, textStatus, errorThrown) { errorFunction(errorThrown); 
-		});
-	};
+ 	// 	 }).fail(function (jqXHR, textStatus, errorThrown) { errorFunction(errorThrown); 
+	// 	});
+	// };
 	
-	successFunction = (r)=>{
-		let h = $('.form-container-all').height();
-		$('.form-container-all').css('height',h);
-		$('.loader').css('display','none');
-		$('#send-status-message').html("Message Sent!<br> Thank you " + r);
+	// successFunction = (r)=>{
+	// 	let h = $('.form-container-all').height();
+	// 	$('.form-container-all').css('height',h);
+	// 	$('.loader').css('display','none');
+	// 	$('#send-status-message').html("Message Sent!<br> Thank you " + r);
 
-		setTimeout(()=>{
-			$('.form-submit-message-container-screen').slideUp("fast");
-	    	$('.form-submit-message-container').css('display','none');
-	    		$('#btn-submit').removeClass("button-grey-enabled");
-					$('#btn-submit').prop("disabled",true);
-				}, 4000 );
+	// 	setTimeout(()=>{
+	// 		$('.form-submit-message-container-screen').slideUp("fast");
+	//     	$('.form-submit-message-container').css('display','none');
+	//     		$('#btn-submit').removeClass("button-grey-enabled");
+	// 				$('#btn-submit').prop("disabled",true);
+	// 			}, 4000 );
 	
-	};
+	// };
 
- 	errorFunction = (r)=>{
-		let h = $('.form-container-all').height();
-		$('.form-container-all').css('height',h);
-		$('.loader').css('display','none');
-		$('#send-status-message').html(r);
+ 	// errorFunction = (r)=>{
+	// 	let h = $('.form-container-all').height();
+	// 	$('.form-container-all').css('height',h);
+	// 	$('.loader').css('display','none');
+	// 	$('#send-status-message').html(r);
 		
-	};
-	};
+	// };
+	// };
 
-    let contactForm = $("#contact-form");
-              contactForm.on("submit", function(e) {
-                e.preventDefault();
-                $.ajax({
-                  type: "POST",
-                  url: "contact_form_verify_captcha_004.php", //Our file 
-                  data: {         
-                    captcha: grecaptcha.getResponse()
-                  },
-                  success: function(response) {
-                   //Here add to front-end message
-                    cl("SUCCESS " + response)
-                    sendFormAfterCaptchaValid();
-                    grecaptcha.reset(); // Reset reCaptcha
+//     let contactForm = $("#contact-form");
+//               contactForm.on("submit", function(e) {
+//                 e.preventDefault();
+//                 $.ajax({
+//                   type: "POST",
+//                   url: "contact_form_verify_captcha_004.php", //Our file 
+//                   data: {         
+//                     captcha: grecaptcha.getResponse()
+//                   },
+//                   success: function(response) {
+//                    //Here add to front-end message
+//                     cl("SUCCESS " + response)
+//                     sendFormAfterCaptchaValid();
+//                     grecaptcha.reset(); // Reset reCaptcha
 
-                  },
-                  error: function(jqXHR, textStatus, errorThrown) {
-				    // Handle error
-				    cl("AJAX Error:", textStatus, errorThrown);
-                    grecaptcha.reset(); // Reset reCaptcha
-                  }
-                })
+//                   },
+//                   error: function(jqXHR, textStatus, errorThrown) {
+// 				    // Handle error
+// 				    cl("AJAX Error:", textStatus, errorThrown);
+//                     grecaptcha.reset(); // Reset reCaptcha
+//                   }
+//                 })
 
-              });
+//               });
 
-let enableFormSubmitBtn = function(){
-	$('#btn-submit').addClass("button-grey-enabled");
-	$('#btn-submit').prop("disabled",false);
-}
+// let enableFormSubmitBtn = function(){
+// 	$('#btn-submit').addClass("button-grey-enabled");
+// 	$('#btn-submit').prop("disabled",false);
+// }
 
 
 
@@ -311,125 +312,125 @@ let enableFormSubmitBtn = function(){
 
 //--------------CONTACT FORM SUBMISSION --------------
 
-$("#contact-form-submit").on("click", (e)=>{
-	e.preventDefault();
-	let Fname =  $('input[name="firstname"]').val();
-	let Lname =  $('input[name="lastname"]').val();
-	let email =  $('input[name="email"]').val();
-	let messge = $('#message').val();
+// $("#contact-form-submit").on("click", (e)=>{
+// 	e.preventDefault();
+// 	let Fname =  $('input[name="firstname"]').val();
+// 	let Lname =  $('input[name="lastname"]').val();
+// 	let email =  $('input[name="email"]').val();
+// 	let messge = $('#message').val();
 
-// CONTACT FORM ERROR CHECK START
-// SANITIZE FIRST NAME
+// // CONTACT FORM ERROR CHECK START
+// // SANITIZE FIRST NAME
 
-	(function($) {
-	$.sanitize = function(input) {
-		let output = input.replace(/<script[^>]*?>.*?<\/script>/gi, '').
-		replace(/<[\/\!]*?[^<>]*?>/gi, '').
-		replace(/<style[^>]*?>.*?<\/style>/gi, '').
-		replace(/<![\s\S]*?--[ \t\n\r]*>/gi, '').
-        replace(/&nbsp;/g, '');
-	    return output;
-	};
-	})(jQuery);
-	let sFname;
+// 	(function($) {
+// 	$.sanitize = function(input) {
+// 		let output = input.replace(/<script[^>]*?>.*?<\/script>/gi, '').
+// 		replace(/<[\/\!]*?[^<>]*?>/gi, '').
+// 		replace(/<style[^>]*?>.*?<\/style>/gi, '').
+// 		replace(/<![\s\S]*?--[ \t\n\r]*>/gi, '').
+//         replace(/&nbsp;/g, '');
+// 	    return output;
+// 	};
+// 	})(jQuery);
+// 	let sFname;
 
-//SANITIZE FIRST NAME END
+// //SANITIZE FIRST NAME END
 
-	let isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
-	let errors = [0,0,0,0];
-		if(Fname == ""){
-			$('#Fname').prev().html("<span style='color:red;'>*Enter Name</span>");
-			$('#Fname').css({'border-color':'red','border-width':'2px'});
-			errors[0] = 1;
-		} else {
-			$('#Fname').prev().html("");
-			$('#Fname').css({'border-color':'#ccc','border-width':'1px'});
-			sFname = $.sanitize(Fname);
-			errors[0] = 0;
-		}
-		if(email == ""){
-			$('#email').prev().html("<span style='color: red;'>*Enter Email</span>");
-			$('#email').css({'border-color':'red','border-width':'2px'});
-			errors[2] = 1;
-		} else if(email != "" && isValidEmail == false) {
-			$('#email').prev().html("<span style='color: red;'>*Enter a valid Email</span>");
-			$('#email').css({'border-color':'red','border-width':'2px'});
-			errors[2] = 1;
-		} else {
-			$('#email').prev().html("");
-			$('#email').css({'border-color':'#ccc','border-width':'1px'});
-			errors[2] = 0;
-		}
+// 	let isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+// 	let errors = [0,0,0,0];
+// 		if(Fname == ""){
+// 			$('#Fname').prev().html("<span style='color:red;'>*Enter Name</span>");
+// 			$('#Fname').css({'border-color':'red','border-width':'2px'});
+// 			errors[0] = 1;
+// 		} else {
+// 			$('#Fname').prev().html("");
+// 			$('#Fname').css({'border-color':'#ccc','border-width':'1px'});
+// 			sFname = $.sanitize(Fname);
+// 			errors[0] = 0;
+// 		}
+// 		if(email == ""){
+// 			$('#email').prev().html("<span style='color: red;'>*Enter Email</span>");
+// 			$('#email').css({'border-color':'red','border-width':'2px'});
+// 			errors[2] = 1;
+// 		} else if(email != "" && isValidEmail == false) {
+// 			$('#email').prev().html("<span style='color: red;'>*Enter a valid Email</span>");
+// 			$('#email').css({'border-color':'red','border-width':'2px'});
+// 			errors[2] = 1;
+// 		} else {
+// 			$('#email').prev().html("");
+// 			$('#email').css({'border-color':'#ccc','border-width':'1px'});
+// 			errors[2] = 0;
+// 		}
 
-		if($.trim(messge) === ""){
-			$('#message').prev().html("<span style='color:red;'>*Enter a Message</span>");
-			$('#message').css({'border-color':'red','border-width':'2px'});
-			errors[3] = 1;
-		} else {
-			$('#message').prev().html("");
-			$('#message').css({'border-color':'#ccc','border-width':'1px'});
-			errors[3] = 0;
-		}
+// 		if($.trim(messge) === ""){
+// 			$('#message').prev().html("<span style='color:red;'>*Enter a Message</span>");
+// 			$('#message').css({'border-color':'red','border-width':'2px'});
+// 			errors[3] = 1;
+// 		} else {
+// 			$('#message').prev().html("");
+// 			$('#message').css({'border-color':'#ccc','border-width':'1px'});
+// 			errors[3] = 0;
+// 		}
 		
-		let findErrors = errors.includes(1);
+// 		let findErrors = errors.includes(1);
 		
-// CONTACT FORM ERROR CHECK END
+// // CONTACT FORM ERROR CHECK END
 
-		if(!findErrors){
-			let h = $('.form-container-all').height();
-			$('.form-container-all').css('height',h);
-			$('.form-submit-message-container-screen').css('display','grid');
-    		$('.form-submit-message-container').css('display','grid');
-			setTimeout(()=>{
-				sendInfo(sFname,Lname,email,messge);
-				$('#Fname')[0].value = "";  
-				$('#lastname')[0].value = ""; 
-				$('#email')[0].value = "";
-				$('#message')[0].value="";
-			}, 1000
-			);
-		}
-});
+// 		if(!findErrors){
+// 			let h = $('.form-container-all').height();
+// 			$('.form-container-all').css('height',h);
+// 			$('.form-submit-message-container-screen').css('display','grid');
+//     		$('.form-submit-message-container').css('display','grid');
+// 			setTimeout(()=>{
+// 				sendInfo(sFname,Lname,email,messge);
+// 				$('#Fname')[0].value = "";  
+// 				$('#lastname')[0].value = ""; 
+// 				$('#email')[0].value = "";
+// 				$('#message')[0].value="";
+// 			}, 1000
+// 			);
+// 		}
+// });
 
-	sendInfo = (Fn,Ln,e,m)=>{
-		$.ajax({
-        type: 'POST',
-        url: "contact_form_submit.php",
-        data: { firstname: Fn, lastname: Ln, email: e, message: m }
- 		 }).done(function (n) {
-			let j = JSON.parse(n);
-			let result=j[0];
-			let msg=j[1];
- 		 	if(result=="error"){
- 		 		errorFunction(msg);
- 		 	} else {
- 		 		let userName = msg.replace(/"/g, '');
- 		 		 successFunction(userName);
-			}
+// 	sendInfo = (Fn,Ln,e,m)=>{
+// 		$.ajax({
+//         type: 'POST',
+//         url: "contact_form_submit.php",
+//         data: { firstname: Fn, lastname: Ln, email: e, message: m }
+//  		 }).done(function (n) {
+// 			let j = JSON.parse(n);
+// 			let result=j[0];
+// 			let msg=j[1];
+//  		 	if(result=="error"){
+//  		 		errorFunction(msg);
+//  		 	} else {
+//  		 		let userName = msg.replace(/"/g, '');
+//  		 		 successFunction(userName);
+// 			}
 			 		 	
- 		 }).fail(function (jqXHR, textStatus, errorThrown) { errorFunction(errorThrown); 
-		});
-	};
+//  		 }).fail(function (jqXHR, textStatus, errorThrown) { errorFunction(errorThrown); 
+// 		});
+// 	};
 	
-	successFunction = (r)=>{
-		let h = $('.form-container-all').height();
-		$('.form-container-all').css('height',h);
-		$('.loader').css('display','none');
-		$('#send-status-message').html("Message Sent!<br> Thank you " + r);
+// 	successFunction = (r)=>{
+// 		let h = $('.form-container-all').height();
+// 		$('.form-container-all').css('height',h);
+// 		$('.loader').css('display','none');
+// 		$('#send-status-message').html("Message Sent!<br> Thank you " + r);
 
-		setTimeout(()=>{
-			$('.form-submit-message-container-screen').slideUp("fast");
-	    	$('.form-submit-message-container').css('display','none');
-				}, 4000 );
+// 		setTimeout(()=>{
+// 			$('.form-submit-message-container-screen').slideUp("fast");
+// 	    	$('.form-submit-message-container').css('display','none');
+// 				}, 4000 );
 	
-	};
+// 	};
 
- 	errorFunction = (r)=>{
-		let h = $('.form-container-all').height();
-		$('.form-container-all').css('height',h);
-		$('.loader').css('display','none');
-		$('#send-status-message').html(r);
+//  	errorFunction = (r)=>{
+// 		let h = $('.form-container-all').height();
+// 		$('.form-container-all').css('height',h);
+// 		$('.loader').css('display','none');
+// 		$('#send-status-message').html(r);
 		
-	};
+// 	};
 //--------------CONTACT SUBMISSION END --------------
 });
